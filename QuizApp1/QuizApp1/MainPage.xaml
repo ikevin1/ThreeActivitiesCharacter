@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QuizApp1;assembly=QuizApp1"
+             mc:Ignorable="d"
+             x:Class="QuizApp1.MainPage"
+             Title="Quizy">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" x:Name="YoResults"
+               TextColor="Black" FontSize="Title" FontAttributes="Bold"
+               Text="{Binding currentScore, StringFormat='YoResults: {0}'}" />       
+
+        <Label Text="{Binding Name}" d:Text="{Binding Age}" 
+               FontSize="Large"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center" />
+       
+        <Label Text="Welcome to the quizzy show!" 
+           HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand" />
+        <Image Source="best.jpg"
+                Aspect="AspectFill"
+                Margin="-10"
+                HeightRequest="100"
+                WidthRequest="100" />
+      
+        <Entry x:Name="Name"
+           Placeholder="Enter Yo Name"
+           Keyboard="Text"
+           TextColor="DarkBlue"
+           PlaceholderColor="DarkBlue"
+           Completed="NameCompleted"
+           IsVisible="True"
+           HorizontalOptions="Start"
+           WidthRequest="300"
+           Text="{Binding Name}"
+         />        
+        <Entry x:Name="age"
+           Placeholder="Enter Yo Age"
+           Keyboard="Numeric"
+           TextColor="DarkBlue"
+           PlaceholderColor="DarkBlue"
+           Completed="AgeCompleted"
+           IsVisible="True"
+           HorizontalOptions="Start"
+           WidthRequest="120"
+           Text="{Binding Age}"
+         />
+
+        <Label HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"
+               TextColor="DarkRed" FontSize="Title" FontAttributes="Bold"
+               Text="*The Quiz Questions*" />
+
+        <Label x:Name="showQuiz"
+               TextColor="CadetBlue" FontSize="Title" FontAttributes="Bold"
+               Text="" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand">
+            <Label.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipe"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipe"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <!--<Label.BindingContext>
+                <local:PlayerViewModel />
+            </Label.BindingContext>-->
+       
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--<Button Text="True" Grid.Column="0"  Command="{Binding TrueCommand}" HorizontalOptions="Start" CharacterSpacing="5" BackgroundColor="#008000" BorderColor="Black" TextColor="White" FontSize="Title"/>
+
+            <Button Text="False" Grid.Column="1" Command="{Binding FalseCommand}" HorizontalOptions="End" CharacterSpacing="5"  BackgroundColor="#c74c34" BorderColor="Black" TextColor="White" FontSize="Title"/>-->
+
+            <!--<Button x:Name="trueBtn"  Text="True" Grid.Column="0"  Clicked="trueButton" HorizontalOptions="Start" CharacterSpacing="5" BackgroundColor="#008000" BorderColor="Black" TextColor="White" FontSize="Title"/>
+
+            <Button x:Name="falseBtn" Text="False" Grid.Column="1" Clicked="falseButton" HorizontalOptions="End" CharacterSpacing="5"  BackgroundColor="#c74c34" BorderColor="Black" TextColor="White" FontSize="Title"/>-->
+        
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
